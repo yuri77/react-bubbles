@@ -14,7 +14,7 @@ const Login = ({ history }) => {
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.payload);
-        //history.push("./bubblePage");
+        history.push("/bubblePage");
       })
       .catch(err => console.log(err.response));
     setAuth({ username: "", password: "" });
