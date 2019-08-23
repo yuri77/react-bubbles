@@ -12,8 +12,8 @@ const Login = ({ history }) => {
     axios
       .post("http://localhost:5000/api/login", auth)
       .then(res => {
-        console.log(res);
-        localStorage.setItem("token", res.data.payload);
+        console.log("login success res", res);
+        localStorage.setItem("bubble", res.data.payload);
         history.push("/bubblePage");
       })
       .catch(err => console.log(err.response));
