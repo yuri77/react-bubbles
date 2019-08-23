@@ -20,7 +20,8 @@ const ColorList = ({ colors, updateColors }) => {
       .catch(err => console.log("err", err));
   };
 
-  const editColor = color => {
+  const editColor = (e, color) => {
+    //e.stopPropagation();
     setEditing(true);
     setColorToEdit(color);
   };
@@ -37,7 +38,8 @@ const ColorList = ({ colors, updateColors }) => {
     getData();
   };
 
-  const deleteColor = color => {
+  const deleteColor = (e, color) => {
+    e.stopPropagation();
     console.log("colorToEdit", color);
     axiosWithAuth()
       .delete(`http://localhost:5000/api/colors/${color.id}`)
@@ -45,7 +47,6 @@ const ColorList = ({ colors, updateColors }) => {
         console.log("BubblePage delete res", res);
       })
       .catch(err => console.log("err", err));
-    setEditing(false);
     getData();
   };
 
@@ -54,9 +55,9 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
+          <li key={color.color} onClick={e => editColor(e, color)}>
             <span>
-              <span className="delete" onClick={() => deleteColor(color)}>
+              <span className="delete" onClick={e => deleteColor(e, color)}>
                 x
               </span>{" "}
               {color.color}
