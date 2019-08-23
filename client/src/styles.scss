@@ -97,3 +97,29 @@ form {
     margin-top: 16px;
   }
 }
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: salmon;
+  width: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid salmon;
+    width: 80%;
+    margin-top: 1%;
+    input {
+      margin: 2%;
+      width: 40%;
+      height: 40%;
+    }
+    button {
+      width: 30%;
+      margin-bottom: 1%;
+      background-color: salmon;
+      color: white;
+    }
+  }
+}
